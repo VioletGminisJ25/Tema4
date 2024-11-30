@@ -32,6 +32,9 @@ namespace ejercicio4f
             list.Add("-", (n1, n2) =>n1-n2);
             list.Add("*", (n1, n2) =>n1*n2);
             list.Add("/", (n1, n2) =>n1/n2);
+            func = list["+"];
+            radioButton1.Checked = true;
+            label1.Text = "+";
             this.Text = "00:00";
             seconds = 0;
             minutes = 0;
@@ -40,6 +43,7 @@ namespace ejercicio4f
             timer.Interval = 1000;
             timer.Tick += updateTimer;
             timer.Start();
+
 
         }
 
