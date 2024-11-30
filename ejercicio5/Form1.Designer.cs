@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.listRight = new System.Windows.Forms.ListBox();
             this.listLeft = new System.Windows.Forms.ListBox();
             this.btnRight = new System.Windows.Forms.Button();
@@ -37,6 +39,7 @@
             this.textBox = new System.Windows.Forms.TextBox();
             this.lblItems = new System.Windows.Forms.Label();
             this.lblIndex = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // listRight
@@ -46,6 +49,7 @@
             this.listRight.Name = "listRight";
             this.listRight.Size = new System.Drawing.Size(169, 186);
             this.listRight.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.listRight, "Lista Secundaria");
             // 
             // listLeft
             // 
@@ -55,6 +59,7 @@
             this.listLeft.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listLeft.Size = new System.Drawing.Size(157, 186);
             this.listLeft.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.listLeft, "Lista Principal");
             this.listLeft.SelectedIndexChanged += new System.EventHandler(this.listLeft_SelectedIndexChanged);
             // 
             // btnRight
@@ -64,6 +69,7 @@
             this.btnRight.Size = new System.Drawing.Size(75, 23);
             this.btnRight.TabIndex = 2;
             this.btnRight.Text = "Move > >";
+            this.toolTip1.SetToolTip(this.btnRight, "Mover los items a la derecha");
             this.btnRight.UseVisualStyleBackColor = true;
             this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
@@ -74,6 +80,7 @@
             this.btnLeft.Size = new System.Drawing.Size(75, 23);
             this.btnLeft.TabIndex = 3;
             this.btnLeft.Text = "< <  Move";
+            this.toolTip1.SetToolTip(this.btnLeft, "Mover los items a la izquierda");
             this.btnLeft.UseVisualStyleBackColor = true;
             this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
@@ -84,6 +91,7 @@
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
+            this.toolTip1.SetToolTip(this.btnAdd, "Añadir elementos en la principal");
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -94,6 +102,7 @@
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 5;
             this.btnRemove.Text = "Remove";
+            this.toolTip1.SetToolTip(this.btnRemove, "Borrar elementos de la lista principal");
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
@@ -103,6 +112,7 @@
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(100, 20);
             this.textBox.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.textBox, "Texto a añadir");
             // 
             // lblItems
             // 
@@ -135,6 +145,7 @@
             this.Controls.Add(this.btnRight);
             this.Controls.Add(this.listLeft);
             this.Controls.Add(this.listRight);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -153,6 +164,7 @@
         private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.Label lblItems;
         private System.Windows.Forms.Label lblIndex;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
