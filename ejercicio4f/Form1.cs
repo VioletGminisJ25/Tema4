@@ -42,7 +42,7 @@ namespace ejercicio4f
             minutes = 0;
             timer = new Timer();
             timer.Enabled = true;
-            timer.Interval = 300;
+            timer.Interval = 1000;
             timer.Tick += updateTimer;
             timer.Start();
 
