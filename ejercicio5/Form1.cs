@@ -16,10 +16,12 @@ namespace ejercicio5
         Timer timer;
         int cont;
         private String title;
+        bool image;
         public Form1()
         {
             InitializeComponent();
             actualizarLabel();
+            image = true;
             lblIndex.Text = "Index: \n";
             title = "Ejercicio5";
             cont = title.Length - 1;
@@ -27,6 +29,7 @@ namespace ejercicio5
             timer.Tick += AnimacionTitulo;
             timer.Interval = 200;
             timer.Start();
+            toolTip1.SetToolTip(listRight, listRight.Items.Count.ToString());
         }
 
         private void AnimacionTitulo(object sender, EventArgs e)
@@ -41,6 +44,16 @@ namespace ejercicio5
             {
                 cont = title.Length - 1;
             }
+            if (image)
+            {
+                this.Icon = Properties.Resources.gatoIcon;
+                image = false;
+            }
+            else
+            {
+                this.Icon = Properties.Resources.cheese;
+                image = true;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -52,6 +65,7 @@ namespace ejercicio5
                     listLeft.Items.Add(textBox.Text);
                 }
             }
+
             actualizarLabel();
 
         }
@@ -82,7 +96,10 @@ namespace ejercicio5
             {
                 listRight.Items.Add(item);
                 listLeft.Items.Remove(item);
+
             }
+            toolTip1.SetToolTip(listRight, listRight.Items.Count.ToString());
+
             actualizarLabel();
 
         }
@@ -100,6 +117,8 @@ namespace ejercicio5
                 listLeft.Items.Add(item);
                 listRight.Items.Remove(item);
             }
+            toolTip1.SetToolTip(listRight, listRight.Items.Count.ToString());
+
             actualizarLabel();
 
         }
@@ -113,10 +132,12 @@ namespace ejercicio5
         private void listLeft_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblIndex.Text = "Index: \n";
-            foreach (var item in listLeft.SelectedItems)
+            for (int i = 0; i < listLeft.SelectedIndices.Count; i++)
             {
-                lblIndex.Text += listLeft.Items.IndexOf(item) + "\n";
+                
+                lblIndex.Text += listLeft.SelectedIndices[i] + "\n";
             }
+            
         }
     }
 }
