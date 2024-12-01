@@ -22,11 +22,13 @@ namespace ejercicio4f
         Timer timer;
         int seconds;
         int minutes;
+        bool valid;
         public Form1()
         {
             InitializeComponent();
             n1 = 0;
             n2 = 0;
+            valid = true;
             list = new Dictionary<String,Functions>();
             list.Add("+", (n1, n2) =>n1+n2);
             list.Add("-", (n1, n2) =>n1-n2);
@@ -40,7 +42,7 @@ namespace ejercicio4f
             minutes = 0;
             timer = new Timer();
             timer.Enabled = true;
-            timer.Interval = 1000;
+            timer.Interval = 300;
             timer.Tick += updateTimer;
             timer.Start();
 
@@ -54,8 +56,8 @@ namespace ejercicio4f
                 minutes++;
                 seconds = 0;
             }
-            seconds++;
             this.Text = $"{minutes,2:D2}:{seconds,2:D2}";
+            seconds++;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -66,26 +68,30 @@ namespace ejercicio4f
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label2.Text = func.Invoke(n1,n2).ToString();
+        
+            
+            if (double.TryParse(textBox2.Text.ToString(), out n1))
+            {
+                if (double.TryParse(textBox1.Text.ToString(), out n2))
+                {
+
+                    label2.Text = func.Invoke(n1,n2).ToString();
+                  
+                }
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (double.TryParse(((TextBox)sender).Text.ToString(), out double tmp))
             {
-                if(((TextBox)sender) == textBox1)
-                {
-                    n1 = tmp;
-                }
-                else
-                {
-                    n2 = tmp;
-                }
                 ((TextBox)sender).BackColor = Color.White;
+                valid = true;
             }
             else
             {
                 ((TextBox)sender).BackColor = Color.Red;
+                valid = false;
             }
         }
     }
