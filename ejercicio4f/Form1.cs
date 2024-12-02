@@ -51,7 +51,7 @@ namespace ejercicio4f
 
         private void updateTimer(object sender, EventArgs e)
         {
-            if (seconds >= 59)
+            if (seconds >= 60)
             {
                 minutes++;
                 seconds = 0;

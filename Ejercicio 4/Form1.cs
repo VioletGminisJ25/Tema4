@@ -33,10 +33,10 @@ namespace Ejercicio_3
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Form2 form2 = new Form2(openFileDialog.FileName);
-                    DialogResult res;
+
                     if (checkBox1.Checked)
                     {
-                        res = form2.ShowDialog();
+                        form2.ShowDialog();
                     }
                     else
                     {
