@@ -17,7 +17,6 @@ namespace Ejercicio_4
         {
                 InitializeComponent();
                 this.filePath = filePath;
-
         }
 
         private void Form2_Load(object sender, EventArgs e)
