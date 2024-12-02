@@ -32,25 +32,20 @@ namespace Ejercicio_3
                 openFileDialog.RestoreDirectory = true;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    filePath = openFileDialog.FileName;
-                    abrirModal();
+                    Form2 form2 = new Form2(openFileDialog.FileName);
+                    DialogResult res;
+                    if (checkBox1.Checked)
+                    {
+                        res = form2.ShowDialog();
+                    }
+                    else
+                    {
+                        form2.Show();
+                    }
                 }
             }
         }
-        private void abrirModal()
-        {
-            Form2 form2 = new Form2(filePath);
-            DialogResult res;
-            if (checkBox1.Checked)
-            {
-                res = form2.ShowDialog();
-            }
-            else
-            {
-                form2.Show(); 
-            }
-           
-        }
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
