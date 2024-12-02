@@ -42,7 +42,7 @@ namespace ejercicio4f
             minutes = 0;
             timer = new Timer();
             timer.Enabled = true;
-            timer.Interval = 1000;
+            timer.Interval = 100;
             timer.Tick += updateTimer;
             timer.Start();
 
@@ -51,7 +51,7 @@ namespace ejercicio4f
 
         private void updateTimer(object sender, EventArgs e)
         {
-            if (seconds >= 59)
+            if (seconds >= 60)
             {
                 minutes++;
                 seconds = 0;
